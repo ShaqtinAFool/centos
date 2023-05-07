@@ -5,10 +5,8 @@ docker machine init
 docker machine start
 
 # Build image
-docker build -t centos .
-docker build -t centos . --no-cache
-docker build -t auoplatform.azurecr.io/centos . --no-cache
-docker exec -it centos bash
+docker build -t localhost/centos .
+docker exec -it localhost/centos bash
 
 # Push image to ACR
 docker tag centos auoplatform.azurecr.io/centos:latest
@@ -22,6 +20,5 @@ docker run -it --name centos localhost/centos
 docker logs centos
 
 # Delete container
-docker stop centos
-docker rm centos
+docker stop $(docker ps -a -q) && docker rm $(docker ps -a -q)
 ```
