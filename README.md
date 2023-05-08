@@ -6,7 +6,6 @@ docker machine start
 
 # Build image
 docker build -t localhost/centos .
-docker exec -it localhost/centos bash
 
 # Push image to ACR
 docker tag centos auoplatform.azurecr.io/centos:latest
@@ -15,6 +14,7 @@ docker push auoplatform.azurecr.io/centos:latest
 
 # Run image
 docker run -it --name centos localhost/centos
+docker exec -it localhost/centos bash
 
 # Diag
 docker logs centos
