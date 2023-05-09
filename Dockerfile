@@ -11,12 +11,13 @@ RUN rpm -Uvh http://li.nux.ro/download/nux/dextop/el7/x86_64/nux-dextop-release-
 # Install several dependencies
 RUN yum install -y net-tools telnet vim wget
 RUN yum install -y gcc cairo-devel libjpeg-turbo-devel libwebsockets-devel libpng-devel uuid-devel ffmpeg-devel freerdp-devel pango-devel libssh2-devel libvncserver-devel pulseaudio-libs-devel openssl-devel libvorbis-devel libwebp-devel libtool libtelnet-devel freerdp mariadb-server tomcat make policycoreutils
+RUN yum install -y maven
 RUN yum update -y
 RUN yum clean all
 
 # Install java
-RUN yum remove -y java-1.8.0-openjdk
-RUN yum install -y java-11-openjdk-devel
-RUN cd /etc/alternatives && \
-   rm -f java && \
-   ln -s /usr/lib/jvm/java-11-openjdk/bin/java
+# RUN yum remove -y java-1.8.0-openjdk
+# RUN yum install -y java-11-openjdk-devel
+# RUN cd /etc/alternatives && \
+#    rm -f java && \
+#    ln -s /usr/lib/jvm/java-11-openjdk/bin/java
