@@ -17,5 +17,6 @@ RUN yum clean all
 # Install java
 RUN yum remove -y java-1.8.0-openjdk
 RUN yum install -y java-11-openjdk-devel
-RUN rm /etc/alternatives/java
-RUN ln -s /etc/alternatives/java /usr/lib/jvm/java-11-openjdk/bin/java
+RUN cd /etc/alternatives && \
+   rm -f java && \
+   ln -s /usr/lib/jvm/java-11-openjdk/bin/java
