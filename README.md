@@ -8,7 +8,7 @@ docker machine start
 docker build -t localhost/centos .
 
 # Push image to ACR
-docker tag centos auoplatform.azurecr.io/centos:latest
+docker tag localhost/centos auoplatform.azurecr.io/centos:latest
 docker images
 docker push auoplatform.azurecr.io/centos:latest
 
