@@ -13,7 +13,8 @@ RUN rpm -Uvh http://li.nux.ro/download/nux/dextop/el7/x86_64/nux-dextop-release-
 
 # Install several dependencies
 RUN yum install -y net-tools telnet vim wget
-RUN yum install -y gcc cairo-devel libjpeg-turbo-devel libwebsockets-devel libpng-devel uuid-devel ffmpeg-devel freerdp-devel pango-devel libssh2-devel libvncserver-devel pulseaudio-libs-devel openssl-devel libvorbis-devel libwebp-devel libtool libtelnet-devel freerdp mariadb tomcat make policycoreutils
+# RUN yum install -y tomcat (wexecute at guacamole install's process)
+RUN yum install -y gcc cairo-devel libjpeg-turbo-devel libwebsockets-devel libpng-devel uuid-devel ffmpeg-devel freerdp-devel pango-devel libssh2-devel libvncserver-devel pulseaudio-libs-devel openssl-devel libvorbis-devel libwebp-devel libtool libtelnet-devel freerdp mariadb make policycoreutils
 RUN yum install -y google-droid-sans-mono-fonts
 RUN yum install -y maven
 # ENV M2_HOME=/opt/apache-maven-3.9.1/
