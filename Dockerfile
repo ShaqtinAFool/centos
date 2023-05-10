@@ -49,6 +49,4 @@ RUN yum install -y maven
 #     wget https://downloads.apache.org/maven/maven-3/3.9.1/binaries/apache-maven-3.9.1-bin.tar.gz && \
 #     tar -zxvf apache-maven-3.9.1-bin.tar.gz && \
 #     mv apache-maven-3.9.1 /opt
-
-RUN yum autoremove -y ${BUILD_DEPENDENCIES}
 RUN yum clean all
