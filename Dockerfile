@@ -36,7 +36,7 @@ RUN rpm --import http://li.nux.ro/download/nux/RPM-GPG-KEY-nux.ro
 RUN rpm -Uvh http://li.nux.ro/download/nux/dextop/el7/x86_64/nux-dextop-release-0-5.el7.nux.noarch.rpm
 
 # Install several dependencies
-RUN yum install -y net-tools telnet vim wget
+RUN yum install -y net-tools telnet vim wget iputils
 RUN yum install -y mariadb policycoreutils
 # RUN yum install -y tomcat (execute at guacamole install's process)
 RUN yum install -y ${RUNTIME_DEPENDENCIES}
