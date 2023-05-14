@@ -27,15 +27,14 @@ ENV TZ=Asia/Taipei \
     "
 RUN cp -fr /usr/share/zoneinfo/${TZ} /etc/localtime
 
-# Enable the Enterprise Linux Repositories (EPEL)
-RUN yum install -y epel-release
-RUN yum update -y
-
 # Install ffmpeg-devel package (that package is not included with the base CentOS or EPEL repositories)
 RUN rpm --import http://li.nux.ro/download/nux/RPM-GPG-KEY-nux.ro
 RUN rpm -Uvh http://li.nux.ro/download/nux/dextop/el7/x86_64/nux-dextop-release-0-5.el7.nux.noarch.rpm
 
-# Install several dependencies
+# Enable the Enterprise Linux Repositories (EPEL)
+RUN yum install -y epel-release
+
+# Install packages
 RUN yum install -y net-tools telnet vim wget iputils
 RUN yum install -y mariadb policycoreutils
 # RUN yum install -y tomcat (execute at guacamole install's process)
@@ -49,4 +48,5 @@ RUN yum install -y maven
 #     wget https://downloads.apache.org/maven/maven-3/3.9.1/binaries/apache-maven-3.9.1-bin.tar.gz && \
 #     tar -zxvf apache-maven-3.9.1-bin.tar.gz && \
 #     mv apache-maven-3.9.1 /opt
+RUN yum update -y
 RUN yum clean all
