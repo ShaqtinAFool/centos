@@ -5,12 +5,12 @@ docker machine init
 docker machine start
 
 # Build image and run container
-docker build -t centos:7.9.2009 .
-docker run -it --name centos centos:7.9.2009
+docker build -t localhost/centos:7.9.2009 .
+docker run -it --name centos localhost/centos:7.9.2009
 docker exec -it centos bash
 
 # Push image to ACR
-docker tag centos:7.9.2009 auoplatform.azurecr.io/centos:7.9.2009
+docker tag localhost/centos:7.9.2009 auoplatform.azurecr.io/centos:7.9.2009
 docker push auoplatform.azurecr.io/centos:7.9.2009
 
 # Diag

@@ -27,12 +27,12 @@ ENV TZ=Asia/Taipei \
     "
 RUN cp -fr /usr/share/zoneinfo/${TZ} /etc/localtime
 
+# Enable the Enterprise Linux Repositories (EPEL)
+RUN yum install -y epel-release
+
 # Install ffmpeg-devel package (that package is not included with the base CentOS or EPEL repositories)
 RUN rpm --import http://li.nux.ro/download/nux/RPM-GPG-KEY-nux.ro
 RUN rpm -Uvh http://li.nux.ro/download/nux/dextop/el7/x86_64/nux-dextop-release-0-5.el7.nux.noarch.rpm
-
-# Enable the Enterprise Linux Repositories (EPEL)
-RUN yum install -y epel-release
 
 # Install packages
 RUN yum install -y net-tools telnet vim wget iputils
